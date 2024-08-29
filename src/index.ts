@@ -42,8 +42,8 @@ export const ALL_ENTITIES = [
 ];
 
 //Enum
+export { RoleEnum } from "./enum/role.enum";
 export * from "./enum/icon.enum";
-export * from "./enum/role.enum";
 export * from "./enum/support-messages.enum";
 
 //Type
