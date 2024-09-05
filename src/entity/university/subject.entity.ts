@@ -9,15 +9,15 @@ export class Subject {
   id: number;
 
   @ApiProperty()
-  @Column({ type: "varchar", length: 300, nullable: false })
+  @Column({ name: "name", type: "varchar", length: 300, nullable: false })
   name: string;
 
   @ApiProperty()
-  @Column({ type: "varchar", length: 300, nullable: true })
+  @Column({ name: "short_name", type: "varchar", length: 300, nullable: true })
   short_name: string;
 
   @ApiProperty()
-  @Column({ type: "varchar", length: 20, nullable: true })
+  @Column({ name: "icon_name", type: "varchar", length: 250, nullable: true })
   icon_name: string;
 
   @ManyToOne(() => University, (university) => university.subjects, {
