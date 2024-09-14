@@ -1,4 +1,4 @@
-import { ChildEntity, ManyToOne } from "typeorm";
+import { ChildEntity, Column, JoinColumn, ManyToOne } from "typeorm";
 import { Profile } from "./proflle.entity";
 import { University } from "../university/university.entity";
 
@@ -6,6 +6,7 @@ import { University } from "../university/university.entity";
 export class Moderator extends Profile {
   @ManyToOne(() => University, (university) => university.moderators, {
     onDelete: "CASCADE",
+    cascade: true,
   })
   university_moderator: University;
 }

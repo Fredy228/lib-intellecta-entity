@@ -1,4 +1,4 @@
-import { ChildEntity, Column, ManyToOne } from "typeorm";
+import { ChildEntity, Column, JoinColumn, ManyToOne } from "typeorm";
 import { Profile } from "./proflle.entity";
 import { ApiProperty } from "@nestjs/swagger";
 import { University } from "../university/university.entity";

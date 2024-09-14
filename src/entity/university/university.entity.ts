@@ -101,16 +101,16 @@ export class University {
   subjects: Subject[];
 
   @ApiProperty({
-    type: () => [Teacher],
-  })
-  @OneToMany(() => Teacher, (teacher) => teacher.university_teacher)
-  teachers: Teacher[];
-
-  @ApiProperty({
     type: () => [Moderator],
   })
   @OneToMany(() => Moderator, (moderator) => moderator.university_moderator)
   moderators: Moderator[];
+
+  @ApiProperty({
+    type: () => [Teacher],
+  })
+  @OneToMany(() => Teacher, (teacher) => teacher.university_teacher)
+  teachers: Teacher[];
 
   @ApiProperty({
     type: () => [Group],
