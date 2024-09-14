@@ -14,7 +14,7 @@ import { CountryCode } from "libphonenumber-js/types";
 import { Faculty } from "./faculty.entity";
 import { Group } from "../group/group.entity";
 import { Teacher } from "../user/teacher.entity";
-import { Moderator } from "../user/admin.entity";
+import { Moderator } from "../user/moderator.entity";
 import { Owner } from "../user/owner.entity";
 import { Subject } from "./subject.entity";
 
@@ -103,13 +103,13 @@ export class University {
   @ApiProperty({
     type: () => [Teacher],
   })
-  @OneToMany(() => Teacher, (teacher) => teacher.university)
+  @OneToMany(() => Teacher, (teacher) => teacher.university_teacher)
   teachers: Teacher[];
 
   @ApiProperty({
     type: () => [Moderator],
   })
-  @OneToMany(() => Moderator, (moderator) => moderator.university)
+  @OneToMany(() => Moderator, (moderator) => moderator.university_moderator)
   moderators: Moderator[];
 
   @ApiProperty({
@@ -119,7 +119,7 @@ export class University {
   groups: Group[];
 
   @ApiProperty()
-  @OneToOne(() => Owner, (owner) => owner.university)
+  @OneToOne(() => Owner, (owner) => owner.university_owner)
   @JoinColumn()
   owner: Owner;
 }

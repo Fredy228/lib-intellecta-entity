@@ -1,17 +1,17 @@
-import { ChildEntity, Column, ManyToOne } from 'typeorm';
-import { Profile } from './proflle.entity';
-import { ApiProperty } from '@nestjs/swagger';
-import { University } from '../university/university.entity';
+import { ChildEntity, Column, ManyToOne } from "typeorm";
+import { Profile } from "./proflle.entity";
+import { ApiProperty } from "@nestjs/swagger";
+import { University } from "../university/university.entity";
 
 @ChildEntity()
 export class Teacher extends Profile {
   @ApiProperty()
-  @Column({ type: 'varchar', length: 250, nullable: false })
+  @Column({ type: "varchar", length: 250, nullable: false })
   job_title: string;
 
   @ManyToOne(() => University, (university) => university.teachers, {
-    onDelete: 'CASCADE',
+    onDelete: "CASCADE",
     cascade: true,
   })
-  university: University;
+  university_teacher: University;
 }
