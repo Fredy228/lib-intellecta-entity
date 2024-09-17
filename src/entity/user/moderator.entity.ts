@@ -1,4 +1,4 @@
-import { ChildEntity, Column, JoinColumn, ManyToOne } from "typeorm";
+import { ChildEntity, ManyToOne } from "typeorm";
 import { Profile } from "./proflle.entity";
 import { University } from "../university/university.entity";
 

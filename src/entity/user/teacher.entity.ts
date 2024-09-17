@@ -1,7 +1,8 @@
-import { ChildEntity, Column, JoinColumn, ManyToOne } from "typeorm";
+import { ChildEntity, Column, ManyToOne, OneToMany } from "typeorm";
 import { Profile } from "./proflle.entity";
 import { ApiProperty } from "@nestjs/swagger";
 import { University } from "../university/university.entity";
+import { SchedulePart } from "../schedule/schedule-part.entity";
 
 @ChildEntity()
 export class Teacher extends Profile {
@@ -14,4 +15,7 @@ export class Teacher extends Profile {
     cascade: true,
   })
   university_teacher: University;
+
+  @OneToMany(() => SchedulePart, (part) => part.teacher)
+  schedule_parts: SchedulePart[];
 }

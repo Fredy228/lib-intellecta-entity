@@ -1,6 +1,14 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import { University } from "./university.entity";
+import { SchedulePart } from "../schedule/schedule-part.entity";
+import { ScheduleHour } from "../schedule/schedule_hour.entity";
 
 @Entity({ name: "subject" })
 export class Subject {
@@ -25,4 +33,10 @@ export class Subject {
     cascade: true,
   })
   university: University;
+
+  @OneToMany(() => SchedulePart, (part) => part.subject)
+  schedule_parts: SchedulePart[];
+
+  @OneToMany(() => ScheduleHour, (hour) => hour.subject)
+  schedule_hours: ScheduleHour[];
 }
